@@ -861,6 +861,14 @@ p {
     color: var(--blue);
 }
 
+.office-link {
+    display: block;
+}
+
+.office-link:hover {
+    text-decoration: underline;
+}
+
 /* Contact Form */
 .contact-form-wrapper {
     background: var(--gray-100);
