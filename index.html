@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="TCG – Technical Consulting Group. Technical Consulting & Project Management for Defense, Aviation, and Infrastructure.">
+    <title>TCG – Technical Consulting Group</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="TCG" class="logo-img">
+                    <div class="logo-content">
+                        <span class="logo-text">TCG</span>
+                        <span class="logo-tagline">Technical Consulting Group</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" data-en="Home" data-az="Ana Səhifə" data-ru="Главная">Home</a></li>
+                    <li><a href="#services" data-en="Services" data-az="Xidmətlər" data-ru="Услуги">Services</a></li>
+                    <li><a href="#scope" data-en="Operational Scope" data-az="Əməliyyat Sahəsi"
+                            data-ru="Сфера деятельности">Operational Scope</a></li>
+                    <li><a href="#about" data-en="About" data-az="Haqqımızda" data-ru="О нас">About</a></li>
+                    <li><a href="#contact" data-en="Contact" data-az="Əlaqə" data-ru="Контакты">Contact</a></li>
+                </ul>
+
+                <div class="header-right">
+                    <img src="images/az-flag.png" alt="Azerbaijan" class="header-flag">
+
+                    <div class="lang-switch">
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <span class="lang-divider">|</span>
+                        <button class="lang-btn active" data-lang="az">AZ</button>
+                        <span class="lang-divider">|</span>
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                    </div>
+
+                    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <aside class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <span class="logo"><img src="images/logo.png" alt="TCG" class="logo-img"><span
+                    class="logo-text">TCG</span></span>
+            <button class="mobile-close" id="mobileClose" aria-label="Close menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#home" data-en="Home" data-az="Ana Səhifə" data-ru="Главная">Home</a></li>
+            <li><a href="#services" data-en="Services" data-az="Xidmətlər" data-ru="Услуги">Services</a></li>
+            <li><a href="#scope" data-en="Operational Scope" data-az="Əməliyyat Sahəsi"
+                    data-ru="Сфера деятельности">Operational Scope</a></li>
+            <li><a href="#about" data-en="About" data-az="Haqqımızda" data-ru="О нас">About</a></li>
+            <li><a href="#contact" data-en="Contact" data-az="Əlaqə" data-ru="Контакты">Contact</a></li>
+        </ul>
+        <div class="mobile-lang-switch">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn active" data-lang="az">AZ</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="ru">RU</button>
+        </div>
+    </aside>
+
+    <!-- Hero Section with Slideshow -->
+    <section class="hero" id="home">
+        <!-- Slideshow Background -->
+        <div class="hero-slideshow">
+            <div class="slide active" style="background-image: url('images/slide1.png')"></div>
+            <div class="slide" style="background-image: url('images/slide2.png')"></div>
+            <div class="slide" style="background-image: url('images/slide3.png')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <!-- Slideshow Controls -->
+        <div class="slideshow-controls">
+            <button class="slide-dot active" data-slide="0"></button>
+            <button class="slide-dot" data-slide="1"></button>
+            <button class="slide-dot" data-slide="2"></button>
+        </div>
+
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <div class="hero-badge" data-en="Technical Consulting Group" data-az="Texniki Məsləhət Qrupu"
+                    data-ru="Техническая Консалтинговая Группа">Technical Consulting Group</div>
+                <h1 data-en="Technical Consulting & Project Management" data-az="Texniki Məsləhət və Layihə İdarəetməsi"
+                    data-ru="Техническое Консультирование и Управление Проектами">Technical Consulting & Project
+                    Management</h1>
+                <p class="hero-subtitle" data-en="Defense, Aviation, and Infrastructure."
+                    data-az="Müdafiə, Aviasiya və İnfrastruktur." data-ru="Оборона, Авиация и Инфраструктура.">Defense,
+                    Aviation, and Infrastructure.</p>
+                <a href="#services" class="btn btn-primary" data-en="View Services" data-az="Xidmətlərə Baxın"
+                    data-ru="Наши Услуги">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-en="Our Services" data-az="Xidmətlərimiz" data-ru="Наши Услуги">Our Services</h2>
+                <p data-en="Comprehensive technical expertise across critical sectors"
+                    data-az="Kritik sektorlarda hərtərəfli texniki ekspertiza"
+                    data-ru="Комплексная техническая экспертиза в критически важных секторах">Comprehensive technical
+                    expertise across critical sectors</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Defense & Security -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Defense & Security Consulting" data-az="Müdafiə və Təhlükəsizlik Məsləhəti"
+                        data-ru="Консалтинг в сфере Обороны и Безопасности">Defense & Security Consulting</h3>
+                    <p data-en="Strategic defense advisory and security systems integration for government and defense organizations."
+                        data-az="Hökumət və müdafiə təşkilatları üçün strateji müdafiə məsləhəti və təhlükəsizlik sistemlərinin inteqrasiyası."
+                        data-ru="Стратегическое консультирование по вопросам обороны и интеграция систем безопасности для государственных и оборонных организаций.">
+                        Strategic defense advisory and security systems integration for government and defense
+                        organizations.</p>
+                </div>
+
+                <!-- Aviation & Aerospace -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Aviation & Aerospace" data-az="Aviasiya və Aerokosmik"
+                        data-ru="Авиация и Аэрокосмическая отрасль">Aviation & Aerospace</h3>
+                    <p data-en="Aviation infrastructure development and aerospace systems consulting for civil and military projects."
+                        data-az="Mülki və hərbi layihələr üçün aviasiya infrastrukturunun inkişafı və aerokosmik sistemlər məsləhəti."
+                        data-ru="Развитие авиационной инфраструктуры и консалтинг по аэрокосмическим системам для гражданских и военных проектов.">
+                        Aviation infrastructure development and aerospace systems consulting for civil and military
+                        projects.</p>
+                </div>
+
+                <!-- Engineering & Infrastructure -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M2 20h20v2H2zM4 10h2v8H4zm4 0h2v8H8zm4-6h2v14h-2zm4 3h2v11h-2zm4 3h2v8h-2z" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Engineering & Infrastructure" data-az="Mühəndislik və İnfrastruktur"
+                        data-ru="Инженерия и Инфраструктура">Engineering & Infrastructure</h3>
+                    <p data-en="Critical infrastructure engineering and technical systems design for large-scale construction projects."
+                        data-az="Böyük miqyaslı tikinti layihələri üçün kritik infrastruktur mühəndisliyi və texniki sistemlərin dizaynı."
+                        data-ru="Проектирование критически важной инфраструктуры и технических систем для крупномасштабных строительных проектов.">
+                        Critical infrastructure engineering and technical systems design for large-scale construction
+                        projects.</p>
+                </div>
+
+                <!-- MEP Systems -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2v6m0 12v2M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg>
+                    </div>
+                    <h3 data-en="MEP Systems" data-az="MEP Sistemləri" data-ru="Инженерные Системы (MEP)">MEP Systems
+                    </h3>
+                    <p data-en="Mechanical, electrical, and plumbing systems design and integration for complex facility requirements."
+                        data-az="Mürəkkəb müəssisə tələbləri üçün mexaniki, elektrik və santexnika sistemlərinin dizaynı və inteqrasiyası."
+                        data-ru="Проектирование и интеграция механических, электрических и сантехнических систем для сложных объектов.">
+                        Mechanical, electrical, and plumbing systems design and integration for complex facility
+                        requirements.</p>
+                </div>
+
+                <!-- Project & Construction Management -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Project & Construction Management" data-az="Layihə və Tikinti İdarəetməsi"
+                        data-ru="Управление Проектами и Строительством">Project & Construction Management</h3>
+                    <p data-en="End-to-end project management services for on-time, on-budget project delivery."
+                        data-az="Vaxtında və büdcə daxilində layihə çatdırılması üçün tam layihə idarəetmə xidmətləri."
+                        data-ru="Комплексные услуги по управлению проектами для своевременной реализации в рамках бюджета.">
+                        End-to-end project management services for on-time, on-budget project delivery.</p>
+                </div>
+
+                <!-- Procurement & Logistics -->
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 4h4v3h-4V4zm10 16H4V9h16v11z" />
+                            <path d="M12 12v5m-2.5-2.5h5" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Procurement & Logistics" data-az="Tədarük və Logistika" data-ru="Закупки и Логистика">
+                        Procurement & Logistics</h3>
+                    <p data-en="Strategic procurement solutions and logistics coordination for complex international projects."
+                        data-az="Mürəkkəb beynəlxalq layihələr üçün strateji tədarük həlləri və logistika koordinasiyası."
+                        data-ru="Стратегические решения по закупкам и координация логистики для сложных международных проектов.">
+                        Strategic procurement solutions and logistics coordination for complex international projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Focus Section -->
+    <section class="section special-focus" id="scope">
+        <div class="container">
+            <div class="focus-grid">
+                <!-- High-Security Projects -->
+                <div class="focus-card reveal">
+                    <div class="focus-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+                        </svg>
+                    </div>
+                    <h3 data-en="High-Security Projects" data-az="Yüksək Təhlükəsizlik Layihələri"
+                        data-ru="Проекты с Высоким Уровнем Безопасности">High-Security Projects</h3>
+                    <p data-en="Specialized expertise in classified and sensitive defense installations. Our team maintains the highest security clearances and adheres to strict confidentiality protocols for government and military clients."
+                        data-az="Təsnifatlı və həssas müdafiə qurğularında ixtisaslaşmış ekspertiza. Komandamız hökumət və hərbi müştərilər üçün ən yüksək təhlükəsizlik icazələrini saxlayır və ciddi məxfilik protokollarına riayət edir."
+                        data-ru="Специализированная экспертиза в области секретных и чувствительных оборонных объектов. Наша команда имеет допуск высшего уровня безопасности и соблюдает строгие протоколы конфиденциальности для государственных и военных клиентов.">
+                        Specialized expertise in classified and sensitive defense installations. Our team maintains the
+                        highest security clearances and adheres to strict confidentiality protocols for government and
+                        military clients.</p>
+                </div>
+
+                <!-- Exhibition Project Organizing -->
+                <div class="focus-card focus-card-highlight reveal">
+                    <div class="focus-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <line x1="3" y1="9" x2="21" y2="9" />
+                            <line x1="9" y1="21" x2="9" y2="9" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Exhibition Project Organizing" data-az="Sərgi Layihələrinin Təşkili"
+                        data-ru="Организация Выставочных Проектов">Exhibition Project Organizing</h3>
+                    <p data-en="End-to-end exhibition and trade show project management for defense, aviation, and industrial sectors. From concept development to booth design, logistics coordination, and on-site execution."
+                        data-az="Müdafiə, aviasiya və sənaye sektorları üçün sərgi və ticarət şoularının tam layihə idarəetməsi. Konsept inkişafından stend dizaynına, logistika koordinasiyasına və yerində icraatına qədər."
+                        data-ru="Полное управление выставочными проектами для оборонного, авиационного и промышленного секторов. От разработки концепции до дизайна стенда, координации логистики и реализации на месте.">
+                        End-to-end exhibition and trade show project management for defense, aviation, and industrial
+                        sectors. From concept development to booth design, logistics coordination, and on-site
+                        execution.</p>
+                </div>
+
+                <!-- Marketing Support -->
+                <div class="focus-card reveal">
+                    <div class="focus-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Marketing Support" data-az="Marketinq Dəstəyi" data-ru="Маркетинговая Поддержка">
+                        Marketing Support</h3>
+                    <p data-en="Strategic marketing and communications support for B2B and B2G markets. We help position technical products and services through targeted campaigns, content development, and market entry strategies."
+                        data-az="B2B və B2G bazarları üçün strateji marketinq və kommunikasiya dəstəyi. Hədəflənmiş kampaniyalar, məzmun inkişafı və bazara giriş strategiyaları vasitəsilə texniki məhsul və xidmətlərin mövqeləndirilməsinə kömək edirik."
+                        data-ru="Стратегическая маркетинговая и коммуникационная поддержка для рынков B2B и B2G. Мы помогаем позиционировать технические продукты и услуги через целевые кампании, разработку контента и стратегии выхода на рынок.">
+                        Strategic marketing and communications support for B2B and B2G markets. We help position
+                        technical products and services through targeted campaigns, content development, and market
+                        entry strategies.</p>
+                </div>
+
+                <!-- Risk Assessment -->
+                <div class="focus-card focus-card-highlight reveal">
+                    <div class="focus-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                    </div>
+                    <h3 data-en="Risk Assessment" data-az="Risk Qiymətləndirməsi" data-ru="Оценка Рисков">Risk
+                        Assessment</h3>
+                    <p data-en="Comprehensive risk analysis and mitigation strategies for complex projects. We identify potential threats, evaluate vulnerabilities, and develop actionable plans to ensure project success and regulatory compliance."
+                        data-az="Mürəkkəb layihələr üçün hərtərəfli risk təhlili və azaltma strategiyaları. Potensial təhdidləri müəyyənləşdirir, zəiflikləri qiymətləndirir və layihə uğuru və tənzimləyici uyğunluğu təmin etmək üçün tətbiq edilə bilən planlar hazırlayırıq."
+                        data-ru="Комплексный анализ рисков и стратегии их снижения для сложных проектов. Мы выявляем потенциальные угрозы, оцениваем уязвимости и разрабатываем практические планы для обеспечения успеха проекта и соответствия нормативным требованиям.">
+                        Comprehensive risk analysis and mitigation strategies for complex projects. We identify
+                        potential threats, evaluate vulnerabilities, and develop actionable plans to ensure project
+                        success and regulatory compliance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content reveal">
+                    <h2 data-en="About TCG" data-az="TCG Haqqında" data-ru="О TCG">About TCG</h2>
+                    <p data-en="Technical Consulting Group (TCG) is an international technical consultancy delivering engineering, defense, and industrial advisory services for complex and mission-critical projects."
+                        data-az="Technical Consulting Group (TCG) mürəkkəb və missiya üçün kritik layihələr üçün mühəndislik, müdafiə və sənaye məsləhət xidmətləri göstərən beynəlxalq texniki konsaltinq şirkətidir."
+                        data-ru="Technical Consulting Group (TCG) — международная техническая консалтинговая компания, предоставляющая инженерные, оборонные и промышленные консультационные услуги для сложных и критически важных проектов.">
+                        Technical Consulting Group (TCG) is an international technical consultancy delivering
+                        engineering, defense, and industrial advisory services for complex and mission-critical
+                        projects.</p>
+                    <p data-en="TCG supports public institutions, defense organizations, and private companies across defense & security, aerospace, infrastructure, energy, and industrial systems. We provide end-to-end technical consulting—from system planning and design to implementation, supervision, and operational support."
+                        data-az="TCG müdafiə və təhlükəsizlik, aerokosmik, infrastruktur, enerji və sənaye sistemləri sahələrində dövlət qurumlarını, müdafiə təşkilatlarını və özəl şirkətləri dəstəkləyir. Sistemin planlaşdırılması və dizaynından tutmuş tətbiqinə, nəzarətinə və əməliyyat dəstəyinə qədər tam texniki konsaltinq xidmətləri göstəririk."
+                        data-ru="TCG поддерживает государственные учреждения, оборонные организации и частные компании в сферах обороны и безопасности, аэрокосмической отрасли, инфраструктуры, энергетики и промышленных систем. Мы предоставляем комплексные технические консультации — от планирования и проектирования систем до реализации, надзора и эксплуатационной поддержки.">
+                        TCG supports public institutions, defense organizations, and private companies across defense &
+                        security, aerospace, infrastructure, energy, and industrial systems. We provide end-to-end
+                        technical consulting—from system planning and design to implementation, supervision, and
+                        operational support.</p>
+                    <p data-en="With a strong focus on technical accuracy, operational efficiency, and international standards, TCG acts as an independent bridge between clients, manufacturers, and contractors, ensuring reliable, compliant, and sustainable solutions."
+                        data-az="Texniki dəqiqliyə, əməliyyat effektivliyinə və beynəlxalq standartlara güclü diqqət yetirərək, TCG müştərilər, istehsalçılar və podratçılar arasında müstəqil körpü rolunu oynayır, etibarlı, uyğun və davamlı həllər təmin edir."
+                        data-ru="С сильным акцентом на техническую точность, операционную эффективность и международные стандарты, TCG выступает независимым посредником между клиентами, производителями и подрядчиками, обеспечивая надёжные, соответствующие требованиям и устойчивые решения.">
+                        With a strong focus on technical accuracy, operational efficiency, and international standards,
+                        TCG acts as an independent bridge between clients, manufacturers, and contractors, ensuring
+                        reliable, compliant, and sustainable solutions.</p>
+                    <p data-en="Our mission is to help organizations execute high-value technical projects with confidence, precision, and long-term reliability."
+                        data-az="Missiyamız təşkilatlara yüksək dəyərli texniki layihələri inamla, dəqiqliklə və uzunmüddətli etibarlılıqla həyata keçirməyə kömək etməkdir."
+                        data-ru="Наша миссия — помогать организациям реализовывать высокозначимые технические проекты с уверенностью, точностью и долгосрочной надёжностью.">
+                        Our mission is to help organizations execute high-value technical projects with confidence,
+                        precision, and long-term reliability.</p>
+                </div>
+                <div class="about-stats reveal">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <path d="M9 12l2 2 4-4" />
+                            </svg>
+                        </div>
+                        <span class="stat-label" data-en="Security Cleared" data-az="Təhlükəsizlik Təsdiqi"
+                            data-ru="Допуск безопасности">Security Cleared</span>
+                        <span class="stat-desc" data-en="Certified for classified projects"
+                            data-az="Təsnifatlı layihələr üçün sertifikatlı"
+                            data-ru="Сертификация для секретных проектов">Certified for classified projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                                <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                                <line x1="12" y1="19" x2="12" y2="23" />
+                                <line x1="8" y1="23" x2="16" y2="23" />
+                            </svg>
+                        </div>
+                        <span class="stat-label" data-en="Confidential" data-az="Məxfi"
+                            data-ru="Конфиденциально">Confidential</span>
+                        <span class="stat-desc" data-en="Strict NDA protocols" data-az="Ciddi NDA protokolları"
+                            data-ru="Строгие протоколы NDA">Strict NDA protocols</span>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10" />
+                                <path
+                                    d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                            </svg>
+                        </div>
+                        <span class="stat-label" data-en="Multi-Regional" data-az="Çoxregional"
+                            data-ru="Мультирегиональный">Multi-Regional</span>
+                        <span class="stat-desc" data-en="Cross-border operations" data-az="Sərhədlərarası əməliyyatlar"
+                            data-ru="Трансграничные операции">Cross-border operations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 data-en="Contact Us" data-az="Bizimlə Əlaqə" data-ru="Связаться с Нами">Contact Us</h2>
+                <p data-en="Get in touch for project inquiries and technical consultations"
+                    data-az="Layihə sorğuları və texniki məsləhətlər üçün bizimlə əlaqə saxlayın"
+                    data-ru="Свяжитесь с нами для запросов по проектам и технических консультаций">Get in touch for
+                    project inquiries and technical consultations</p>
+            </div>
+
+            <div class="contact-combined reveal">
+                <!-- Contact Info -->
+                <div class="contact-info-inline">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Email" data-az="E-poçt" data-ru="Эл. почта">Email</h4>
+                            <a href="mailto:ra@tcg.pro.az">ra@tcg.pro.az</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Phone" data-az="Telefon" data-ru="Телефон">Phone</h4>
+                            <a href="tel:+994506200579">+994 050 620 05 79</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                <circle cx="12" cy="10" r="3" />
+                            </svg>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Office" data-az="Ofis" data-ru="Офис">Office</h4>
+                            <p data-en="Baku, Azerbaijan" data-az="Bakı, Azərbaycan" data-ru="Баку, Азербайджан">Baku,
+                                Azerbaijan</p>
+                            <p>Marine Palace, 8th floor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mail Us Button -->
+                <a href="mailto:ra@tcg.pro.az" class="btn btn-primary btn-large" data-en="Mail Us" data-az="Bizə Yazın"
+                    data-ru="Написать нам">Mail Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="TCG" class="footer-logo-img">
+                        <span>TCG</span>
+                    </div>
+                    <p class="footer-tagline" data-en="Technical Consulting Group" data-az="Texniki Məsləhət Qrupu"
+                        data-ru="Техническая Консалтинговая Группа">Technical Consulting Group</p>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 data-en="Contact" data-az="Əlaqə" data-ru="Контакты">Contact</h4>
+                    <p><a href="mailto:ra@tcg.pro.az">ra@tcg.pro.az</a></p>
+                    <p><a href="tel:+994506200579">+994 050 620 05 79</a></p>
+                    <p data-en="Office: Baku, Azerbaijan, Marine Palace 8th floor"
+                        data-az="Ofis: Bakı, Azərbaycan, Marine Palace 8-ci mərtəbə"
+                        data-ru="Офис: Баку, Азербайджан, Marine Palace 8-й этаж">Office: Baku, Azerbaijan, Marine
+                        Palace 8th floor</p>
+                </div>
+
+                <div class="footer-compliance">
+                    <h4 data-en="Confidentiality & Compliance" data-az="Məxfilik və Uyğunluq"
+                        data-ru="Конфиденциальность и Соответствие">Confidentiality & Compliance</h4>
+                    <p data-en="All client engagements are conducted under strict confidentiality agreements. TCG adheres to international security standards and compliance requirements for defense and government contracts."
+                        data-az="Bütün müştəri əlaqələri ciddi məxfilik müqavilələri çərçivəsində aparılır. TCG müdafiə və hökumət müqavilələri üçün beynəlxalq təhlükəsizlik standartlarına və uyğunluq tələblərinə riayət edir."
+                        data-ru="Все взаимодействия с клиентами осуществляются в рамках строгих соглашений о конфиденциальности. TCG соблюдает международные стандарты безопасности и требования соответствия для оборонных и государственных контрактов.">
+                        All client engagements are conducted under strict confidentiality agreements. TCG adheres to
+                        international security standards and compliance requirements for defense and government
+                        contracts.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Technical Consulting Group. <span data-en="All rights reserved."
+                        data-az="Bütün hüquqlar qorunur." data-ru="Все права защищены.">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
