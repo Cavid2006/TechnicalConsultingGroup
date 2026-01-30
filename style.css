@@ -454,6 +454,29 @@ p {
     z-index: 1;
 }
 
+/* Cyber Grid Effect Canvas */
+.hero-cyber-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.hero:hover .hero-cyber-grid {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-cyber-grid {
+        display: none;
+    }
+}
+
 .hero-container {
     position: relative;
     z-index: 2;

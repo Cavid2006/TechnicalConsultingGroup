@@ -297,6 +297,171 @@ const SmoothScroll = {
 };
 
 // ========================================
+// HERO CYBER GRID EFFECT
+// ========================================
+const HeroCyberGrid = {
+    canvas: null,
+    ctx: null,
+    hero: null,
+    nodes: [],
+    mouse: { x: 0, y: 0 },
+    targetMouse: { x: 0, y: 0 },
+    isActive: false,
+    animationId: null,
+    nodeCount: 35,
+    connectionDistance: 150,
+
+    init() {
+        // Skip on touch devices
+        if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
+
+        // Respect prefers-reduced-motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        this.canvas = document.getElementById('heroCyberGrid');
+        this.hero = document.querySelector('.hero');
+
+        if (!this.canvas || !this.hero) return;
+
+        this.ctx = this.canvas.getContext('2d');
+        this.resize();
+        this.createNodes();
+
+        // Event listeners
+        window.addEventListener('resize', () => this.resize());
+        this.hero.addEventListener('mouseenter', () => this.activate());
+        this.hero.addEventListener('mouseleave', () => this.deactivate());
+        this.hero.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+    },
+
+    resize() {
+        if (!this.canvas || !this.hero) return;
+        const rect = this.hero.getBoundingClientRect();
+        this.canvas.width = rect.width;
+        this.canvas.height = rect.height;
+        this.createNodes();
+    },
+
+    createNodes() {
+        this.nodes = [];
+        const width = this.canvas.width;
+        const height = this.canvas.height;
+
+        for (let i = 0; i < this.nodeCount; i++) {
+            this.nodes.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                baseX: Math.random() * width,
+                baseY: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
+                radius: Math.random() * 2 + 1
+            });
+        }
+    },
+
+    handleMouseMove(e) {
+        const rect = this.hero.getBoundingClientRect();
+        this.targetMouse.x = e.clientX - rect.left;
+        this.targetMouse.y = e.clientY - rect.top;
+    },
+
+    activate() {
+        this.isActive = true;
+        if (!this.animationId) {
+            this.animate();
+        }
+    },
+
+    deactivate() {
+        this.isActive = false;
+    },
+
+    lerp(start, end, factor) {
+        return start + (end - start) * factor;
+    },
+
+    animate() {
+        if (!this.ctx) return;
+
+        // Smooth mouse lerp
+        this.mouse.x = this.lerp(this.mouse.x, this.targetMouse.x, 0.08);
+        this.mouse.y = this.lerp(this.mouse.y, this.targetMouse.y, 0.08);
+
+        // Clear canvas
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        if (!this.isActive) {
+            this.animationId = null;
+            return;
+        }
+
+        const width = this.canvas.width;
+        const height = this.canvas.height;
+
+        // Update and draw nodes
+        this.nodes.forEach(node => {
+            // Subtle drift movement
+            node.x += node.vx;
+            node.y += node.vy;
+
+            // Bounce off edges
+            if (node.x < 0 || node.x > width) node.vx *= -1;
+            if (node.y < 0 || node.y > height) node.vy *= -1;
+
+            // Mouse influence (subtle parallax)
+            const dx = this.mouse.x - node.x;
+            const dy = this.mouse.y - node.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const maxDist = 250;
+
+            if (dist < maxDist) {
+                const force = (1 - dist / maxDist) * 0.015;
+                node.x += dx * force;
+                node.y += dy * force;
+            }
+
+            // Draw node
+            this.ctx.beginPath();
+            this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+            this.ctx.fillStyle = 'rgba(147, 197, 253, 0.5)';
+            this.ctx.fill();
+        });
+
+        // Draw connections
+        for (let i = 0; i < this.nodes.length; i++) {
+            for (let j = i + 1; j < this.nodes.length; j++) {
+                const dx = this.nodes[i].x - this.nodes[j].x;
+                const dy = this.nodes[i].y - this.nodes[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < this.connectionDistance) {
+                    const opacity = (1 - dist / this.connectionDistance) * 0.15;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                    this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+                    this.ctx.strokeStyle = `rgba(147, 197, 253, ${opacity})`;
+                    this.ctx.lineWidth = 0.5;
+                    this.ctx.stroke();
+                }
+            }
+        }
+
+        // Mouse glow effect
+        const gradient = this.ctx.createRadialGradient(
+            this.mouse.x, this.mouse.y, 0,
+            this.mouse.x, this.mouse.y, 120
+        );
+        gradient.addColorStop(0, 'rgba(147, 197, 253, 0.08)');
+        gradient.addColorStop(1, 'rgba(147, 197, 253, 0)');
+        this.ctx.fillStyle = gradient;
+        this.ctx.fillRect(0, 0, width, height);
+
+        this.animationId = requestAnimationFrame(() => this.animate());
+    }
+};
+
+// ========================================
 // INITIALIZE ALL MODULES
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -306,4 +471,5 @@ document.addEventListener('DOMContentLoaded', () => {
     HeaderScroll.init();
     ScrollReveal.init();
     SmoothScroll.init();
+    HeroCyberGrid.init();
 });
