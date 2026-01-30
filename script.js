@@ -339,7 +339,7 @@ const MailUsToggle = {
 // ========================================
 const ContactForm = {
     // EmailJS Configuration - REPLACE THESE WITH YOUR ACTUAL KEYS
-    EMAILJS_PUBLIC_KEY: 'PASTE_YOUR_PUBLIC_KEY_HERE',
+    EMAILJS_PUBLIC_KEY: 'WdLlnDST05Hs4r2Zs',
     EMAILJS_SERVICE_ID: 'service_eqj2tow',
     EMAILJS_TEMPLATE_ID: 'PASTE_YOUR_TEMPLATE_ID_HERE',
 
