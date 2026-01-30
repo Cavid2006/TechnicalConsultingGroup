@@ -948,6 +948,25 @@ p {
     color: #dc2626;
 }
 
+/* Collapsible Contact Form */
+.contact-form-collapsible {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease, margin 0.3s ease, padding 0.3s ease;
+    margin-top: 0;
+    padding: 0 32px;
+}
+
+.contact-form-collapsible.open {
+    max-height: 600px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 24px;
+    padding: 32px;
+}
+
 /* ========================================
    FOOTER
 ======================================== */

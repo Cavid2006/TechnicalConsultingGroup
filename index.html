@@ -448,9 +448,30 @@
                     </div>
                 </div>
 
-                <!-- Mail Us Button -->
-                <a href="mailto:ra@tcg.pro.az" class="btn btn-primary btn-large" data-en="Mail Us" data-az="Bizə Yazın"
-                    data-ru="Написать нам">Mail Us</a>
+                <!-- Mail Us Toggle Button -->
+                <button type="button" id="mailUsToggle" class="btn btn-primary btn-large" data-en="Mail Us"
+                    data-az="Bizə Yazın" data-ru="Написать нам">Mail Us</button>
+
+                <!-- Collapsible Contact Form -->
+                <div id="contactFormWrap" class="contact-form-wrapper contact-form-collapsible" aria-hidden="true">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="from_name" data-en="Name" data-az="Ad" data-ru="Имя">Name</label>
+                            <input type="text" id="from_name" name="from_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="from_email" data-en="Email" data-az="E-poçt" data-ru="Эл. почта">Email</label>
+                            <input type="email" id="from_email" name="from_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-en="Message" data-az="Mesaj" data-ru="Сообщение">Message</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <p id="formStatus" class="form-status" aria-live="polite"></p>
+                        <button type="submit" id="submitBtn" class="btn btn-primary" data-en="Send Message"
+                            data-az="Mesaj Göndər" data-ru="Отправить">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -495,6 +516,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -297,6 +297,140 @@ const SmoothScroll = {
 };
 
 // ========================================
+// MAIL US TOGGLE (Collapsible Form)
+// ========================================
+const MailUsToggle = {
+    toggleBtn: null,
+    formWrap: null,
+
+    init() {
+        this.toggleBtn = document.getElementById('mailUsToggle');
+        this.formWrap = document.getElementById('contactFormWrap');
+
+        if (!this.toggleBtn || !this.formWrap) return;
+
+        this.toggleBtn.addEventListener('click', () => this.toggle());
+    },
+
+    toggle() {
+        const isOpen = this.formWrap.classList.toggle('open');
+        this.formWrap.setAttribute('aria-hidden', !isOpen);
+
+        // Scroll into view when opening
+        if (isOpen) {
+            setTimeout(() => {
+                this.formWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    },
+
+    close() {
+        this.formWrap.classList.remove('open');
+        this.formWrap.setAttribute('aria-hidden', 'true');
+    },
+
+    isOpen() {
+        return this.formWrap.classList.contains('open');
+    }
+};
+
+// ========================================
+// CONTACT FORM (EmailJS)
+// ========================================
+const ContactForm = {
+    // EmailJS Configuration - REPLACE THESE WITH YOUR ACTUAL KEYS
+    EMAILJS_PUBLIC_KEY: 'PASTE_YOUR_PUBLIC_KEY_HERE',
+    EMAILJS_SERVICE_ID: 'service_eqj2tow',
+    EMAILJS_TEMPLATE_ID: 'PASTE_YOUR_TEMPLATE_ID_HERE',
+
+    form: null,
+    submitBtn: null,
+    statusEl: null,
+    isSending: false,
+
+    init() {
+        this.form = document.getElementById('contactForm');
+        this.submitBtn = document.getElementById('submitBtn');
+        this.statusEl = document.getElementById('formStatus');
+
+        if (!this.form) return;
+
+        // Initialize EmailJS
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init(this.EMAILJS_PUBLIC_KEY);
+        }
+
+        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+    },
+
+    async handleSubmit(e) {
+        e.preventDefault();
+
+        // Prevent double submission
+        if (this.isSending) return;
+
+        this.clearStatus();
+        this.setLoading(true);
+
+        try {
+            // Check if EmailJS is loaded
+            if (typeof emailjs === 'undefined') {
+                throw new Error('EmailJS not loaded. Please refresh the page.');
+            }
+
+            // Send email using EmailJS
+            await emailjs.sendForm(
+                this.EMAILJS_SERVICE_ID,
+                this.EMAILJS_TEMPLATE_ID,
+                this.form
+            );
+
+            // Success
+            this.showStatus('Message sent successfully!', false);
+            this.form.reset();
+
+            // Close panel after 700ms
+            setTimeout(() => {
+                MailUsToggle.close();
+                this.clearStatus();
+            }, 700);
+
+        } catch (error) {
+            // Error
+            console.error('EmailJS Error:', error);
+            const errorMsg = error.text || error.message || 'Failed to send message. Please try again.';
+            this.showStatus(errorMsg, true);
+        } finally {
+            this.setLoading(false);
+        }
+    },
+
+    showStatus(message, isError = false) {
+        if (!this.statusEl) return;
+        this.statusEl.textContent = message;
+        this.statusEl.className = 'form-status ' + (isError ? 'error' : 'success');
+    },
+
+    clearStatus() {
+        if (!this.statusEl) return;
+        this.statusEl.textContent = '';
+        this.statusEl.className = 'form-status';
+    },
+
+    setLoading(loading) {
+        this.isSending = loading;
+        if (this.submitBtn) {
+            this.submitBtn.disabled = loading;
+            // Store original text on first load
+            if (!this.submitBtn.dataset.originalText) {
+                this.submitBtn.dataset.originalText = this.submitBtn.textContent;
+            }
+            this.submitBtn.textContent = loading ? 'Sending...' : this.submitBtn.dataset.originalText;
+        }
+    }
+};
+
+// ========================================
 // INITIALIZE ALL MODULES
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -306,4 +440,6 @@ document.addEventListener('DOMContentLoaded', () => {
     HeaderScroll.init();
     ScrollReveal.init();
     SmoothScroll.init();
+    MailUsToggle.init();
+    ContactForm.init();
 });
